@@ -464,8 +464,8 @@ int Temperature::getHeaterPower(int heater) {
     uint8_t fanState = 0;
 
     HOTEND_LOOP() {
-    //  if (current_temperature[e] > EXTRUDER_AUTO_FAN_TEMPERATURE)
-      if(current_temperature[e] >= (thermalManager.degHotend(0)-5))
+    if (current_temperature[e] > EXTRUDER_AUTO_FAN_TEMPERATURE)
+      //if(current_temperature[e] >= (thermalManager.degHotend(0)-5))
         SBI(fanState, fanBit[e]);
     }
 
