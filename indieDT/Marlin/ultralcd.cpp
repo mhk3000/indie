@@ -868,7 +868,7 @@ void kill_screen(const char* lcd_msg) {
     //
     #if ENABLED(BABYSTEPPING)
       #if ENABLED(BABYSTEP_XY)
-        MENU_ITEM(submenu, MSG_BABYSTEP_X, lcd_babystep_x);
+          MENU_ITEM(submenu, MSG_BABYSTEP_X, lcd_babystep_x);
        MENU_ITEM(submenu, MSG_BABYSTEP_Y, lcd_babystep_y);
       #endif //BABYSTEP_XY
       MENU_ITEM(submenu, MSG_BABYSTEP_Z, lcd_babystep_z);
@@ -1442,7 +1442,7 @@ void kill_screen(const char* lcd_msg) {
   void lcd_move_x()
    {
 
-//  _lcd_move_xyz(PSTR(MSG_MOVE_X), X_AXIS);
+  _lcd_move_xyz(PSTR(MSG_MOVE_X), X_AXIS);
   if (encoderPosition != 0)
   {
     current_position[X_AXIS] += float((int)encoderPosition) * move_menu_scale;
@@ -1542,8 +1542,8 @@ void kill_screen(const char* lcd_msg) {
     MENU_BACK(MSG_MOVE_AXIS);
 
     if (_MOVE_XYZ_ALLOWED) {
-    //  MENU_ITEM(submenu, MSG_MOVE_X, lcd_move_x);
-    //  MENU_ITEM(submenu, MSG_MOVE_Y, lcd_move_y);
+      MENU_ITEM(submenu, MSG_MOVE_X, lcd_move_x);
+      MENU_ITEM(submenu, MSG_MOVE_Y, lcd_move_y);
     }
 
     if (move_menu_scale < 10.0) {
@@ -1595,7 +1595,7 @@ void kill_screen(const char* lcd_msg) {
     MENU_BACK(MSG_PREPARE);
 
     if (_MOVE_XYZ_ALLOWED)
-  //  MENU_ITEM(submenu, MSG_MOVE_10MM, lcd_move_menu_10mm);
+    MENU_ITEM(submenu, MSG_MOVE_10MM, lcd_move_menu_10mm);
 
     MENU_ITEM(submenu, MSG_MOVE_1MM, lcd_move_menu_1mm);
     MENU_ITEM(submenu, MSG_MOVE_01MM, lcd_move_menu_01mm);
