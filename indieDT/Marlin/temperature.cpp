@@ -810,7 +810,7 @@ void Temperature::manage_heater() {
   int32_t tChamberTarget = 60;
 
   // if((FanControl.Chamber==1) || ((thermalManager.degHotend(0) > (thermalManager.degTargetHotend(0)-10)) && thermalManager.degTargetHotend(0)!= 0)) //||  thermalManager.degHotend(1) > 60)  //Activate fan only if user has set a Chamber temperature OR it has crossed 60deg celcius
-  if((FanControl.Chamber==1) || (tChamberTemp > 50) ) //||  thermalManager.degHotend(1) > 60)  //Activate fan only if user has set a Chamber temperature OR it has crossed 60deg celcius
+  /*if((FanControl.Chamber==1) || (tChamberTemp > 50) ) //||  thermalManager.degHotend(1) > 60)  //Activate fan only if user has set a Chamber temperature OR it has crossed 60deg celcius
   {
     digitalWrite(CHAMBER_FAN, HIGH);      //Activate chamber fan
     FanControl.Chamber = 1;
@@ -819,7 +819,9 @@ void Temperature::manage_heater() {
   {
     digitalWrite(CHAMBER_FAN, LOW);    //De-activate chamber fan
     FanControl.Chamber = 0;
-  }
+  }*/
+  digitalWrite(CHAMBER_FAN, HIGH);
+
 
 
     if(tChamberTemp >= tChamberTarget && tChamberTarget != 0)
